@@ -251,7 +251,7 @@ void mousePressed() { //Cuando se realiza click
       return;
     }
     if ((mov[posX][posY]==true)&&((posX!=aposX)||(posY!=aposY))) {
-      comer();
+      comer1();
       print(posX); //Posiciones finales
       println(posY);
       tab[posX][posY]=tab[aposX][aposY];  
@@ -285,7 +285,7 @@ void mousePressed() { //Cuando se realiza click
   }
 }
 
-void comer() { //Verifica si come ficha
+void comer1() { //Verifica si come ficha
   if (!turno) { //Turno blancas, come negra
     if (tab[posX][posY] % 2==0 && tab[posX][posY]!=0) {
       println("blanca comio negra");
