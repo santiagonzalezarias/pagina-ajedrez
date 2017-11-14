@@ -61,7 +61,7 @@ void setup() {
 
 
   //Cargar imagen peon blanco
-  peonb=loadImage("peon-blanco.png");
+  peonb=loadImage("sketch/Ajedrez_Proyecto2/data/peon-blanco.png");
 
   //Cargar imagen torre blanca
   torreb=loadImage("torre-blanca.png");
