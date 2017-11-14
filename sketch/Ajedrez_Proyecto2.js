@@ -35,10 +35,10 @@ var reyN=12;
 
 
 //Declaracion matriz tablero
-var tab=new Array[8][8];
+var tab=new Array(8);
 
 //Controlar movimiento fichas
-var mov=new Array[8][8];
+var mov=new Array(8);
 
 //Control turnos False=Turno Blancas, True=Turno Negras
 var acc, turno, actualizar=true; 
@@ -56,6 +56,12 @@ var dato;
 
 function setup() {
   //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
+  for(var i=0; i<tab.lenght; i++){
+    tab[i]=new Array(8);
+  }
+  for(var i=0; i<mov.lenght; i++){
+    mov[i]=new Array(8);
+  }
   createCanvas(600, 600);
   tablero();
 
