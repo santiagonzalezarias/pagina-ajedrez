@@ -2,61 +2,61 @@
 //Serial puerto; //Comunicación serial
 
 //Declaracion imagenes fichas blancas
-PImage peonb;
-PImage torreb;
-PImage caballob;
-PImage alfilb;
-PImage reyb;
-PImage reinab;
+var peonb;
+var torreb;
+var caballob;
+var alfilb;
+var reyb;
+var reinab;
 
 //Declaracion imagenes fichas negras
-PImage peonn;
-PImage torren;
-PImage caballon;
-PImage alfiln;
-PImage reyn;
-PImage reinan;
+var peonn;
+var torren;
+var caballon;
+var alfiln;
+var reyn;
+var reinan;
 
 //Declaracion fichas blancas --> Impares
-char peonB=1;
-char torreB=3;
-char caballoB=5;
-char alfilB=7;
-char reinaB=9;
-char reyB=11;
+var peonB=1;
+var torreB=3;
+var caballoB=5;
+var alfilB=7;
+var reinaB=9;
+var reyB=11;
 
 //Declaracion fichas negras --> Pares
-char peonN=2;
-char torreN=4;
-char caballoN=6;
-char alfilN=8;
-char reinaN=10;
-char reyN=12;
+var peonN=2;
+var torreN=4;
+var caballoN=6;
+var alfilN=8;
+var reinaN=10;
+var reyN=12;
 
 
 //Declaracion matriz tablero
-char[][] tab=new char[8][8];
+var tab=new Array(8)(8);
 
 //Controlar movimiento fichas
-boolean[][] mov=new boolean [8][8];
+var mov=new Array(8)(8);
 
 //Control turnos False=Turno Blancas, True=Turno Negras
-boolean acc, turno, actualizar=true; 
+var acc, turno, actualizar=true; 
 
 //Posiciones
-int posX, posY;
+var posX, posY;
 
 //Auxiliares para posición
-int aposX, aposY;
+var aposX, aposY;
 
-int comer, ficha;
-String dato;
+var comer, ficha;
+var dato;
 
 
 
 function setup() {
   //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
-  size(600, 600);
+  createCanvas(600, 600);
   tablero();
 
 
@@ -109,7 +109,7 @@ function draw() {
 }
 
 
-void tablero() {
+function tablero() {
 
   for (int j=0; j<8; j++) {
     for (int i=0; i<8; i++) {
@@ -124,8 +124,8 @@ void tablero() {
 }
 
 
-void posicionesIniciales() {
-  char i, j;
+function posicionesIniciales() {
+  var i, j;
 
   //Limpia tablero
   for (i=0; i<8; i++) {
@@ -164,8 +164,8 @@ void posicionesIniciales() {
 }
 
 
-void limpiar(boolean l) {
-  char i, j;
+function limpiar(boolean l) {
+  var i, j;
 
   tablero();
   if (l==true) {
@@ -212,8 +212,8 @@ void limpiar(boolean l) {
   }
 }
 
-void mousePressed() { //Cuando se realiza click
-  char i, j;
+function mousePressed() { //Cuando se realiza click
+  var i, j;
   posX=9;  
   posY=9;
 
@@ -289,7 +289,7 @@ void mousePressed() { //Cuando se realiza click
   }
 }
 
-void comer1() { //Verifica si come ficha
+function comer1() { //Verifica si come ficha
   if (!turno) { //Turno blancas, come negra
     if (tab[posX][posY] % 2==0 && tab[posX][posY]!=0) {
       println("blanca comio negra");
@@ -308,7 +308,7 @@ void comer1() { //Verifica si come ficha
 }
 
 
-void Movimientos() {
+function Movimientos() {
 
   boolean x1, x2, y1, y2;
   char i;
