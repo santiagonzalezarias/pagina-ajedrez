@@ -1,5 +1,5 @@
-import processing.serial.*;
-Serial puerto; //Comunicación serial
+//import processing.serial.*;
+//Serial puerto; //Comunicación serial
 
 //Declaracion imagenes fichas blancas
 PImage peonb;
@@ -55,7 +55,7 @@ String dato;
 
 
 void setup() {
-  puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
+  //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
   size(600, 600);
   tablero();
 
@@ -276,7 +276,7 @@ void mousePressed() { //Cuando se realiza click
       }
 
       dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
-      puerto.write(dato);
+      //puerto.write(dato);
       println(dato);
       tab[aposX][aposY]=0;
       turno=!turno; // Cambio de turno al realizar la jugada
