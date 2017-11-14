@@ -105,6 +105,7 @@ void setup() {
 
 
 void draw() {
+  limpiar(true);
 }
 
 
