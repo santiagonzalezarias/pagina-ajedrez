@@ -239,7 +239,8 @@ void mousePressed() { //Cuando se realiza click
 
     mov[posX][posY]=true;
     Movimientos();  //Función de restricción de movimientos de cada ficha
-    actualizar=false; 
+    actualizar=false;
+    limpiar(false);
     aposX=posX; 
     aposY=posY;
 
@@ -249,6 +250,7 @@ void mousePressed() { //Cuando se realiza click
     acc=false;
     if (posX==9 || posY==9) {   
       actualizar=true;
+      limpiar(true);
       return;
     }
     if ((mov[posX][posY]==true)&&((posX!=aposX)||(posY!=aposY))) {
@@ -276,13 +278,14 @@ void mousePressed() { //Cuando se realiza click
         ficha=5;
       }
 
-      dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
+      //dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
       //puerto.write(dato);
-      println(dato);
+      //println(dato);
       tab[aposX][aposY]=0;
       turno=!turno; // Cambio de turno al realizar la jugada
     } 
     actualizar=true;
+    limpiar(true);
   }
 }
 
