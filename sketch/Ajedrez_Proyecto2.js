@@ -120,9 +120,9 @@ function tablero() {
   for (int j=0; j<8; j++) {
     for (int i=0; i<8; i++) {
       if ((i+j)%2==0) {
-        fill(#DBDBDB); 
+        fill(255); 
       } else {
-        fill(#4D9D2E);
+        fill(0);
       }
       rect(i*75, j*75, 75, 75);
     }
@@ -183,9 +183,9 @@ function limpiar(boolean l) {
     for (j=0; j<=7; j++) {
       if (mov[i][j]==true) {
         if ((tab[i][j]!=0)&&((i!=posX)||(j!=posY))) { //Cuadro para mostrar los posibles movimientos de cada ficha
-          fill(#FF2424);
+          fill(190);
         } else
-          fill(#00BCA1);
+          fill(50);
         rect(75*i, 525-((75*j)), 75, 75);
       }
       //Se actualizan las posiciones de las fichas
