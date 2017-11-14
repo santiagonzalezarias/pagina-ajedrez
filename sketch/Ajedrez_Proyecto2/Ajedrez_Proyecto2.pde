@@ -64,37 +64,37 @@ void setup() {
   peonb=loadImage("sketch/Ajedrez_Proyecto2/data/peon-blanco.png");
 
   //Cargar imagen torre blanca
-  torreb=loadImage("torre-blanca.png");
+  torreb=loadImage("sketch/Ajedrez_Proyecto2/data/torre-blanca.png");
 
   //Cargar imagen caballo blanco
-  caballob=loadImage("caballo-blanco.png");
+  caballob=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-blanco.png");
 
   //Cargar imagen alfil blanco
-  alfilb=loadImage("alfil-blanco.png");
+  alfilb=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-blanco.png");
 
   //Cargar imagen rey blanco
-  reyb=loadImage("rey-blanco.png");
+  reyb=loadImage("sketch/Ajedrez_Proyecto2/data/rey-blanco.png");
 
   //Cargar imagen reina blanca
-  reinab=loadImage("reina-blanca.png");
+  reinab=loadImage("sketch/Ajedrez_Proyecto2/data/reina-blanca.png");
   //----------------------------------------------
   //Cargar imagen peon negro
-  peonn=loadImage("peon-negro.png");
+  peonn=loadImage("sketch/Ajedrez_Proyecto2/data/peon-negro.png");
 
   //Cargar imagen torre negra
-  torren=loadImage("torre-negra.png");
+  torren=loadImage("sketch/Ajedrez_Proyecto2/data/torre-negra.png");
 
   //Cargar imagen caballo negro
-  caballon=loadImage("caballo-negro.png");
+  caballon=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-negro.png");
 
   //Cargar imagen alfil negro
-  alfiln=loadImage("alfil-negro.png");
+  alfiln=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-negro.png");
 
   //Cargar imagen rey negro
-  reyn=loadImage("rey-negro.png");
+  reyn=loadImage("sketch/Ajedrez_Proyecto2/data/rey-negro.png");
 
   //Cargar imagen reina blanca
-  reinan=loadImage("reina-negra.png");
+  reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
 
   acc=false;   //Accion
   turno=false; //Turno inicial --> Blancas
