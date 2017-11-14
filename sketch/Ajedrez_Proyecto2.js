@@ -52,21 +52,8 @@ var aposX, aposY;
 var comer, ficha;
 var dato;
 
-
-
-function setup() {
-  //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
-  for(var i=0; i<tab.lenght; i++){
-    tab[i]=new Array(8);
-  }
-  for(var i=0; i<mov.lenght; i++){
-    mov[i]=new Array(8);
-  }
-  createCanvas(600, 600);
-  tablero();
-
-
-  //Cargar imagen peon blanco
+function preload(){
+   //Cargar imagen peon blanco
   peonb=loadImage("sketch/Ajedrez_Proyecto2/data/peon-blanco.png");
 
   //Cargar imagen torre blanca
@@ -101,6 +88,18 @@ function setup() {
 
   //Cargar imagen reina blanca
   reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
+}
+
+function setup() {
+  //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
+  for(var i=0; i<tab.lenght; i++){
+    tab[i]=new Array(8);
+  }
+  for(var i=0; i<mov.lenght; i++){
+    mov[i]=new Array(8);
+  }
+  createCanvas(600, 600);
+  tablero();
 
   acc=false;   //Accion
   turno=false; //Turno inicial --> Blancas
