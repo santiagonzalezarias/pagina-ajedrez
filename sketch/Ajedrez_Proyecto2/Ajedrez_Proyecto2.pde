@@ -41,7 +41,7 @@ char[][] tab=new char[8][8];
 boolean[][] mov=new boolean [8][8];
 
 //Control turnos False=Turno Blancas, True=Turno Negras
-boolean acc, turno, actualizar; 
+boolean acc, turno, actualizar=true; 
 
 //Posiciones
 int posX, posY;
