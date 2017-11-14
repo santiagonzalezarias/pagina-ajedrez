@@ -35,10 +35,10 @@ var reyN=12;
 
 
 //Declaracion matriz tablero
-var tab=new Array(8)(8);
+var tab=new Array[8][8];
 
 //Controlar movimiento fichas
-var mov=new Array(8)(8);
+var mov=new Array[8][8];
 
 //Control turnos False=Turno Blancas, True=Turno Negras
 var acc, turno, actualizar=true; 
@@ -310,8 +310,8 @@ function comer1() { //Verifica si come ficha
 
 function Movimientos() {
 
-  boolean x1, x2, y1, y2;
-  char i;
+  var x1, x2, y1, y2;
+  var i;
 
   x1=true;
   x2=true;
@@ -502,7 +502,7 @@ function Movimientos() {
 
   //Posibles movimientos Rey
   if ((tab[posX][posY]==reyB)||(tab[posX][posY]==reyN)) {
-    boolean x3=true, x4=true, y3=true, y4=true;
+    var x3=true, x4=true, y3=true, y4=true;
 
 
     if ( posX+1 <= 7 && x1 == true)
