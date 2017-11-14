@@ -41,7 +41,7 @@ char[][] tab=new char[8][8];
 boolean[][] mov=new boolean [8][8];
 
 //Control turnos False=Turno Blancas, True=Turno Negras
-boolean acc, turno; 
+boolean acc, turno, actualizar; 
 
 //Posiciones
 int posX, posY;
@@ -105,7 +105,7 @@ void setup() {
 
 
 void draw() {
-  limpiar(true);
+  limpiar(actualizar);
 }
 
 
@@ -239,7 +239,7 @@ void mousePressed() { //Cuando se realiza click
 
     mov[posX][posY]=true;
     Movimientos();  //Función de restricción de movimientos de cada ficha
-    limpiar(false); 
+    actualizar=false; 
     aposX=posX; 
     aposY=posY;
 
@@ -248,7 +248,7 @@ void mousePressed() { //Cuando se realiza click
   } else {
     acc=false;
     if (posX==9 || posY==9) {   
-      limpiar(true);
+      actualizar=true;
       return;
     }
     if ((mov[posX][posY]==true)&&((posX!=aposX)||(posY!=aposY))) {
@@ -282,7 +282,7 @@ void mousePressed() { //Cuando se realiza click
       tab[aposX][aposY]=0;
       turno=!turno; // Cambio de turno al realizar la jugada
     } 
-    limpiar(true);
+    actualizar=true;
   }
 }
 
