@@ -1,5 +1,5 @@
-import processing.serial.*;
-Serial puerto; //Comunicación serial
+//import processing.serial.*;
+//Serial puerto; //Comunicación serial
 
 //Declaracion imagenes fichas blancas
 PImage peonb;
@@ -41,7 +41,7 @@ char[][] tab=new char[8][8];
 boolean[][] mov=new boolean [8][8];
 
 //Control turnos False=Turno Blancas, True=Turno Negras
-boolean acc, turno; 
+boolean acc, turno, actualizar=true; 
 
 //Posiciones
 int posX, posY;
@@ -54,47 +54,47 @@ String dato;
 
 
 
-void setup() {
-  puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
+function setup() {
+  //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
   size(600, 600);
   tablero();
 
 
   //Cargar imagen peon blanco
-  peonb=loadImage("peon-blanco.png");
+  peonb=loadImage("sketch/Ajedrez_Proyecto2/data/peon-blanco.png");
 
   //Cargar imagen torre blanca
-  torreb=loadImage("torre-blanca.png");
+  torreb=loadImage("sketch/Ajedrez_Proyecto2/data/torre-blanca.png");
 
   //Cargar imagen caballo blanco
-  caballob=loadImage("caballo-blanco.png");
+  caballob=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-blanco.png");
 
   //Cargar imagen alfil blanco
-  alfilb=loadImage("alfil-blanco.png");
+  alfilb=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-blanco.png");
 
   //Cargar imagen rey blanco
-  reyb=loadImage("rey-blanco.png");
+  reyb=loadImage("sketch/Ajedrez_Proyecto2/data/rey-blanco.png");
 
   //Cargar imagen reina blanca
-  reinab=loadImage("reina-blanca.png");
+  reinab=loadImage("sketch/Ajedrez_Proyecto2/data/reina-blanca.png");
   //----------------------------------------------
   //Cargar imagen peon negro
-  peonn=loadImage("peon-negro.png");
+  peonn=loadImage("sketch/Ajedrez_Proyecto2/data/peon-negro.png");
 
   //Cargar imagen torre negra
-  torren=loadImage("torre-negra.png");
+  torren=loadImage("sketch/Ajedrez_Proyecto2/data/torre-negra.png");
 
   //Cargar imagen caballo negro
-  caballon=loadImage("caballo-negro.png");
+  caballon=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-negro.png");
 
   //Cargar imagen alfil negro
-  alfiln=loadImage("alfil-negro.png");
+  alfiln=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-negro.png");
 
   //Cargar imagen rey negro
-  reyn=loadImage("rey-negro.png");
+  reyn=loadImage("sketch/Ajedrez_Proyecto2/data/rey-negro.png");
 
   //Cargar imagen reina blanca
-  reinan=loadImage("reina-negra.png");
+  reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
 
   acc=false;   //Accion
   turno=false; //Turno inicial --> Blancas
@@ -104,7 +104,8 @@ void setup() {
 
 
 
-void draw() {
+function draw() {
+  limpiar(actualizar);
 }
 
 
@@ -238,7 +239,8 @@ void mousePressed() { //Cuando se realiza click
 
     mov[posX][posY]=true;
     Movimientos();  //Función de restricción de movimientos de cada ficha
-    limpiar(false); 
+    actualizar=false;
+    limpiar(false);
     aposX=posX; 
     aposY=posY;
 
@@ -247,11 +249,12 @@ void mousePressed() { //Cuando se realiza click
   } else {
     acc=false;
     if (posX==9 || posY==9) {   
+      actualizar=true;
       limpiar(true);
       return;
     }
     if ((mov[posX][posY]==true)&&((posX!=aposX)||(posY!=aposY))) {
-      comer();
+      comer1();
       print(posX); //Posiciones finales
       println(posY);
       tab[posX][posY]=tab[aposX][aposY];  
@@ -275,17 +278,18 @@ void mousePressed() { //Cuando se realiza click
         ficha=5;
       }
 
-      dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
-      puerto.write(dato);
-      println(dato);
+      //dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
+      //puerto.write(dato);
+      //println(dato);
       tab[aposX][aposY]=0;
       turno=!turno; // Cambio de turno al realizar la jugada
     } 
+    actualizar=true;
     limpiar(true);
   }
 }
 
-void comer() { //Verifica si come ficha
+void comer1() { //Verifica si come ficha
   if (!turno) { //Turno blancas, come negra
     if (tab[posX][posY] % 2==0 && tab[posX][posY]!=0) {
       println("blanca comio negra");
