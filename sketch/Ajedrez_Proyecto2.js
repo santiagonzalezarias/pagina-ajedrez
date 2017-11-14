@@ -169,7 +169,7 @@ function posicionesIniciales() {
 }
 
 
-function limpiar(var l) {
+function limpiar(l) {
   var i, j;
 
   tablero();
