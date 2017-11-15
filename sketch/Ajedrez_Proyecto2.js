@@ -106,11 +106,11 @@ function setup() {
 
   posicionesIniciales();
   	
-  var data = "?move=A1B2&player=1";	
-  var url = 'http://192.168.1.56'+data;
-  	httpGet(url, "text", false, function(response) {
-	    print(response);
-  });
+  //var data = "?move=A1B2&player=1";	
+  //var url = 'http://192.168.1.56'+data;
+//	httpGet(url, "text", false, function(response) {
+//	    print(response);
+  //});
   
 }
 
