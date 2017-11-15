@@ -90,8 +90,6 @@ function preload(){
   reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
 }
 
-var cnv;
-
 
 
 function setup() {
@@ -103,11 +101,6 @@ function setup() {
     mov[i]=[];
   }
 
-  var cnv = createCanvas(600, 600);
-  var xx = (windowWidth - width) / 2;
-  var yy = (windowHeight - height) / 2;
-  cnv.position(xx, yy);
-  background(255, 0, 200);
     
 //  createCanvas(600, 600);
   tablero();
@@ -124,18 +117,12 @@ function setup() {
   });
   
 }
-function windowResized() {
-  centerCanvas();
-}
 
 
 function draw() {
   limpiar(actualizar);
 }
 
-function windowResized() {
-  centerCanvas();
-}
 function tablero() {
 
   for (var j=0; j<8; j++) {
