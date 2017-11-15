@@ -117,7 +117,6 @@ function setup() {
 
 
 function draw() {
-     imageMode(CENTER);
   limpiar(actualizar);
 }
 
