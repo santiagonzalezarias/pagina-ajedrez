@@ -90,20 +90,7 @@ function preload(){
   reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
 }
 
-//var canvas;
-
-//function centerCanvas() {
-  //var x = (windowWidth - width) / 2;
-  //var y = (windowHeight - height) / 2;
-  //canvas.position(x, y);
-//}
-var canvas;
-
-function centerCanvas() {
-  var xx = (windowWidth - width) / 2;
-  var yy = (windowHeight - height) / 2;
-  cnv.position(xx, yy);
-}
+var cnv;
 
 
 
@@ -115,18 +102,13 @@ function setup() {
   for(var i=0; i<8; i++){
     mov[i]=[];
   }
-	
-	var cnv = createCanvas(600, 600);
- centerCanvas();
-  // Move the canvas so it's inside our <div id="sketch-holder">.
-  canvas.parent('sketch-holder');
 
+  var cnv = createCanvas(600, 600);
+  var xx = (windowWidth - width) / 2;
+  var yy = (windowHeight - height) / 2;
+  cnv.position(xx, yy);
   background(255, 0, 200);
     
- 
-  // Move the canvas so it's inside our <div id="sketch-holder">.
- //  centerCanvas();
- 
 //  createCanvas(600, 600);
   tablero();
 
