@@ -109,7 +109,14 @@ function setup() {
   for(var i=0; i<8; i++){
     mov[i]=[];
   }
-    createCanvas(600, 600);
+	
+	var canvas = createCanvas(600, 600);
+ 
+  // Move the canvas so it's inside our <div id="sketch-holder">.
+  canvas.parent('sketch-holder');
+
+  background(255, 0, 200);
+    
  
   // Move the canvas so it's inside our <div id="sketch-holder">.
  //  centerCanvas();
