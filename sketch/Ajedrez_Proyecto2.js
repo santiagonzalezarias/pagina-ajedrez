@@ -97,7 +97,13 @@ function preload(){
   //var y = (windowHeight - height) / 2;
   //canvas.position(x, y);
 //}
+var canvas;
 
+function centerCanvas() {
+  var xx = (windowWidth - width) / 2;
+  var yy = (windowHeight - height) / 2;
+  canvas.position(x, y);
+}
 
 
 
@@ -111,7 +117,7 @@ function setup() {
   }
 	
 	var canvas = createCanvas(600, 600);
- 
+ centerCanvas();
   // Move the canvas so it's inside our <div id="sketch-holder">.
   canvas.parent('sketch-holder');
 
@@ -136,7 +142,9 @@ function setup() {
   });
   
 }
-
+function windowResized() {
+  centerCanvas();
+}
 
 
 function draw() {
