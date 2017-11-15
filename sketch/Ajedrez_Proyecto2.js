@@ -117,7 +117,7 @@ function setup() {
 
 
 function draw() {
-  //limpiar(actualizar);
+  limpiar(actualizar);
 }
 
 
