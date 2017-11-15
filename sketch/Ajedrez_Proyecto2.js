@@ -35,10 +35,10 @@ var reyN=12;
 
 
 //Declaracion matriz tablero
-var tab=new Array(8);
+var tab=[];
 
 //Controlar movimiento fichas
-var mov=new Array(8);
+var mov=[];
 
 //Control turnos False=Turno Blancas, True=Turno Negras
 var acc, turno, actualizar=true; 
@@ -54,49 +54,49 @@ var dato;
 
 function preload(){
    //Cargar imagen peon blanco
-  peonb=loadImage("sketch/Ajedrez_Proyecto2/data/peon-blanco.png");
+  peonb=loadImage("peon-blanco.png");
 
   //Cargar imagen torre blanca
-  torreb=loadImage("sketch/Ajedrez_Proyecto2/data/torre-blanca.png");
+  torreb=loadImage("torre-blanca.png");
 
   //Cargar imagen caballo blanco
-  caballob=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-blanco.png");
+  caballob=loadImage("caballo-blanco.png");
 
   //Cargar imagen alfil blanco
-  alfilb=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-blanco.png");
+  alfilb=loadImage("alfil-blanco.png");
 
   //Cargar imagen rey blanco
-  reyb=loadImage("sketch/Ajedrez_Proyecto2/data/rey-blanco.png");
+  reyb=loadImage("rey-blanco.png");
 
   //Cargar imagen reina blanca
-  reinab=loadImage("sketch/Ajedrez_Proyecto2/data/reina-blanca.png");
+  reinab=loadImage("reina-blanca.png");
   //----------------------------------------------
   //Cargar imagen peon negro
-  peonn=loadImage("sketch/Ajedrez_Proyecto2/data/peon-negro.png");
+  peonn=loadImage("peon-negro.png");
 
   //Cargar imagen torre negra
-  torren=loadImage("sketch/Ajedrez_Proyecto2/data/torre-negra.png");
+  torren=loadImage("torre-negra.png");
 
   //Cargar imagen caballo negro
-  caballon=loadImage("sketch/Ajedrez_Proyecto2/data/caballo-negro.png");
+  caballon=loadImage("caballo-negro.png");
 
   //Cargar imagen alfil negro
-  alfiln=loadImage("sketch/Ajedrez_Proyecto2/data/alfil-negro.png");
+  alfiln=loadImage("alfil-negro.png");
 
   //Cargar imagen rey negro
-  reyn=loadImage("sketch/Ajedrez_Proyecto2/data/rey-negro.png");
+  reyn=loadImage("rey-negro.png");
 
   //Cargar imagen reina blanca
-  reinan=loadImage("sketch/Ajedrez_Proyecto2/data/reina-negra.png");
+  reinan=loadImage("reina-negra.png");
 }
 
 function setup() {
   //puerto=new Serial(this, "COM3", 9600); //Realizar comunicacion serial
-  for(var i=0; i<tab.lenght; i++){
-    tab[i]=new Array(8);
+  for(var i=0; i<8; i++){
+    tab[i]=[];
   }
-  for(var i=0; i<mov.lenght; i++){
-    mov[i]=new Array(8);
+  for(var i=0; i<8; i++){
+    mov[i]=[];
   }
   createCanvas(600, 600);
   tablero();
@@ -105,6 +105,13 @@ function setup() {
   turno=false; //Turno inicial --> Blancas
 
   posicionesIniciales();
+  	
+  var data = "?move=A1B2&player=1";	
+  var url = 'http://192.168.1.56'+data;
+  	httpGet(url, "text", false, function(response) {
+	    print(response);
+  });
+  
 }
 
 
@@ -119,9 +126,9 @@ function tablero() {
   for (var j=0; j<8; j++) {
     for (var i=0; i<8; i++) {
       if ((i+j)%2==0) {
-        fill(255); 
+        fill("#DBDBDB"); 
       } else {
-        fill(0);
+        fill("#4D9D2E");
       }
       rect(i*75, j*75, 75, 75);
     }
@@ -182,9 +189,9 @@ function limpiar(l) {
     for (j=0; j<=7; j++) {
       if (mov[i][j]==true) {
         if ((tab[i][j]!=0)&&((i!=posX)||(j!=posY))) { //Cuadro para mostrar los posibles movimientos de cada ficha
-          fill(190);
+          fill("#FF2424");
         } else
-          fill(50);
+          fill("#00BCA1");
         rect(75*i, 525-((75*j)), 75, 75);
       }
       //Se actualizan las posiciones de las fichas
@@ -250,7 +257,7 @@ function mousePressed() { //Cuando se realiza click
     aposY=posY;
 
     print(aposX); //Posiciones iniciales
-    println(aposY);
+    print(aposY);
   } else {
     acc=false;
     if (posX==9 || posY==9) {   
@@ -261,7 +268,7 @@ function mousePressed() { //Cuando se realiza click
     if ((mov[posX][posY]==true)&&((posX!=aposX)||(posY!=aposY))) {
       comer1();
       print(posX); //Posiciones finales
-      println(posY);
+      print(posY);
       tab[posX][posY]=tab[aposX][aposY];  
 
       if (tab[posX][posY]==peonB || tab[posX][posY]==peonN) {
@@ -285,7 +292,7 @@ function mousePressed() { //Cuando se realiza click
 
       //dato=Integer.toString(aposX) + Integer.toString(aposY)  + Integer.toString(posX)  +Integer.toString(posY) +  Integer.toString(comer) + Integer.toString(ficha);
       //puerto.write(dato);
-      //println(dato);
+      //print(dato);
       tab[aposX][aposY]=0;
       turno=!turno; // Cambio de turno al realizar la jugada
     } 
@@ -297,17 +304,17 @@ function mousePressed() { //Cuando se realiza click
 function comer1() { //Verifica si come ficha
   if (!turno) { //Turno blancas, come negra
     if (tab[posX][posY] % 2==0 && tab[posX][posY]!=0) {
-      println("blanca comio negra");
+      print("blanca comio negra");
       comer=1;
     }
   } else 
   if (tab[posX][posY] % 2 !=0 && tab[posX][posY]!=0) { //Turno negras, come blanca
-    println("negra comio blanca");
+    print("negra comio blanca");
     comer=2;
   }
 
   if (tab[posX][posY]==0) {
-    println("no comio");
+    print("no comio");
     comer=0;
   }
 }
