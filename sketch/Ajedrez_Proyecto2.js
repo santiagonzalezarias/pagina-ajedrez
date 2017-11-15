@@ -109,13 +109,11 @@ function setup() {
   for(var i=0; i<8; i++){
     mov[i]=[];
   }
-   var canvas = createCanvas(600, 600);
+    createCanvas(600, 600);
  
   // Move the canvas so it's inside our <div id="sketch-holder">.
  //  centerCanvas();
-  canvas.parent('sketch-holder');
-
-  background(255, 0, 200);
+ 
 //  createCanvas(600, 600);
   tablero();
 
