@@ -102,7 +102,7 @@ var canvas;
 function centerCanvas() {
   var xx = (windowWidth - width) / 2;
   var yy = (windowHeight - height) / 2;
-  canvas.position(x, y);
+  canvas.position(xx, yy);
 }
 
 
